@@ -1,0 +1,4 @@
+prisma migrate dev --name <name>
+npx prisma migrate resolve --rolled-back <name>
+npx prisma migrate deploy
+
