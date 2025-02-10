@@ -2,7 +2,7 @@ import { CreateUserDto } from '../../dto/create-user.dto';
 import * as bcrypt from 'bcryptjs';
 import { ConflictException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from 'src/prisma/services/prisma.service';
+import { PrismaService } from 'src/modules/prisma/services/prisma.service';
 
 export interface IResponse {
   name: string;

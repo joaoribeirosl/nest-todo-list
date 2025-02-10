@@ -3,7 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/services/prisma.service';
+import { PrismaService } from 'src/modules/prisma/services/prisma.service';
 import { UpdateUserDto } from '../../dto/update-user.dto';
 import { User } from '@prisma/client';
 
