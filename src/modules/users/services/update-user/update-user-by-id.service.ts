@@ -17,7 +17,8 @@ export class UpdateUserByIdService {
     const userEmailExists = await this.prisma.user.findFirst({
       where: { email },
     });
-    if (userEmailExists && email !== user.email) throw new ConflictException();
+    if (userEmailExists && email !== user.email)
+      throw new ConflictException('There is another user with this email!');
 
     const updatedUser = await this.prisma.user.update({
       where: { id: idUser },
