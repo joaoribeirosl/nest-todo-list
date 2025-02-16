@@ -1,7 +1,7 @@
+import { PrismaService } from '@module/prisma/services/prisma.service';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { User } from '@prisma/client';
-import { PrismaService } from 'src/modules/prisma/services/prisma.service';
 
 @Injectable()
 export class DecodeTokenService {

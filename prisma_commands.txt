@@ -4,6 +4,7 @@ npx prisma generate
 npx prisma migrate resolve --rolled-back <name>
 npx prisma migrate deploy
 npx prisma migrate reset
+npx prisma studio
 
 
 

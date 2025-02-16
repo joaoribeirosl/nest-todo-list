@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { compare } from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from 'src/modules/prisma/services/prisma.service';
+import { PrismaService } from '@module/prisma/services/prisma.service';
 
 interface ILogin {
   email: string;

@@ -1,27 +1,25 @@
+import { ApiCreateTask } from '@document/task/create_task.documentation';
+import { ApiDeleteTaskById } from '@document/task/delete_task_by_id.documentation';
+import { ApiGetAllTasks } from '@document/task/get_all_tasks.documentation';
+import { ApiGetTasksByUserId } from '@document/task/get_task_by_id.documentation';
+import { ApiUpdateTaskById } from '@document/task/update_task_by_id.documentation';
 import {
-  Body,
   Controller,
-  Delete,
-  Get,
-  HttpStatus,
-  Param,
   Post,
-  Put,
+  Body,
   Query,
+  Get,
+  Param,
+  Delete,
+  Put,
 } from '@nestjs/common';
-import { CreateTaskService } from '../services/create-task-service/create-task.service';
-import { GetAllTasksService } from '../services/get-all-tasks-service/get-all-tasks.service';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { CreateTaskDto } from '../dto/create-task.dto';
-import { GetAllTasksByUserIdService } from '../services/get-all-tasks-by-user-id/get-all-tasks-by-user-id.service';
-import { DeleteTaskByIdService } from '../services/delete-task-by-id/delete-task-by-id.service';
 import { UpdateTaskDto } from '../dto/update-task.dto';
+import { CreateTaskService } from '../services/create-task-service/create-task.service';
+import { DeleteTaskByIdService } from '../services/delete-task-by-id/delete-task-by-id.service';
+import { GetAllTasksByUserIdService } from '../services/get-all-tasks-by-user-id/get-all-tasks-by-user-id.service';
+import { GetAllTasksService } from '../services/get-all-tasks-service/get-all-tasks.service';
 import { UpdateTaskByIdService } from '../services/update-task-by-id/update-task-by-id.service';
-import { ApiCreateTask } from 'src/doc/task/create_task.documentation';
-import { ApiGetAllTasks } from 'src/doc/task/get_all_tasks.documentation';
-import { ApiGetTasksByUserId } from 'src/doc/task/get_task_by_id.documentation';
-import { ApiDeleteTaskById } from 'src/doc/task/delete_task_by_id.documentation';
-import { ApiUpdateTaskById } from 'src/doc/task/update_task_by_id.documentation';
 
 @Controller('tasks')
 export class TaskController {

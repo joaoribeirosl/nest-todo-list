@@ -1,7 +1,7 @@
+import { DecodeTokenService } from '../../../../../src/modules/auth/services/decode-token-service/decode-token.service';
+import { PrismaService } from '../../../../../src/modules/prisma/services/prisma.service';
+import { CreateTaskDto } from '@module/tasks/dto/create-task.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { DecodeTokenService } from 'src/modules/auth/services/decode-token-service/decode-token.service';
-import { CreateTaskDto } from 'src/modules/tasks/dto/create-task.dto';
-import { PrismaService } from 'src/modules/prisma/services/prisma.service';
 
 export interface ICreateTaskRequest {
   createdTask: CreateTaskDto;

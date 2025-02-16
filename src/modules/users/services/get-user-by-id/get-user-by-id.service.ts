@@ -1,6 +1,6 @@
+import { PrismaService } from '@module/prisma/services/prisma.service';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from '@prisma/client';
-import { PrismaService } from 'src/modules/prisma/services/prisma.service';
 
 @Injectable()
 export class GetUserByIdService {
