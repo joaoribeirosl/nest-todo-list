@@ -1,23 +1,14 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpStatus,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
+import { ApiCreateUser } from '@document/user/create_user.documentation';
+import { ApiGetAllUsers } from '@document/user/get_all_users.documentation';
+import { ApiGetUserById } from '@document/user/get_user_by_id.documentation';
+import { ApiUpdateUser } from '@document/user/update_user_by_id.documentation';
+import { Controller, Post, Body, Get, Param, Put } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
-import { CreateUserService } from '../services/create-user/create-user.service';
-import { GetUserByIdService } from '../services/get-user-by-id/get-user-by-id.service';
-import { GetAllUsersService } from '../services/get-all-users/get-all-users.service';
-import { UpdateUserByIdService } from '../services/update-user/update-user-by-id.service';
 import { UpdateUserDto } from '../dto/update-user.dto';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
-import { ApiCreateUser } from 'src/doc/user/create_user.documentation';
-import { ApiGetUserById } from 'src/doc/user/get_user_by_id.documentation';
-import { ApiGetAllUsers } from 'src/doc/user/get_all_users.documentation';
-import { ApiUpdateUser } from 'src/doc/user/update_user_by_id.documentation';
+import { CreateUserService } from '../services/create-user/create-user.service';
+import { GetAllUsersService } from '../services/get-all-users/get-all-users.service';
+import { GetUserByIdService } from '../services/get-user-by-id/get-user-by-id.service';
+import { UpdateUserByIdService } from '../services/update-user/update-user-by-id.service';
 
 @Controller('users')
 export class UserController {

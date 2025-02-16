@@ -1,5 +1,5 @@
+import { PrismaService } from '@module/prisma/services/prisma.service';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from 'src/modules/prisma/services/prisma.service';
 
 @Injectable()
 export class DeleteTaskByIdService {

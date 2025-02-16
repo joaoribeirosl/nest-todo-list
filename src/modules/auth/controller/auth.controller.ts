@@ -1,7 +1,7 @@
+import { ApiSignIn } from '@document/auth/signin.documentation';
 import { Body, Controller, Post } from '@nestjs/common';
-import { SigninService } from '../services/signin-service/signin.service';
 import { SigninDto } from '../dto/signin.dto';
-import { ApiSignIn } from 'src/doc/auth/signin.documentation';
+import { SigninService } from '../services/signin-service/signin.service';
 
 @Controller('auth')
 export class AuthController {

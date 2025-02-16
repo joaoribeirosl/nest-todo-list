@@ -16,6 +16,19 @@
       "forceConsistentCasingInFileNames": true,
       "noImplicitAny": false,
       "strictBindCallApply": false,
-      "noFallthroughCasesInSwitch": false
+      "noFallthroughCasesInSwitch": false,
+      "rootDir": "./",
+      "strict": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "strictPropertyInitialization": false,
+      "paths": {
+        "@module/*": ["src/modules/*"],
+        "@document/*": ["src/doc/*"],
+      },
+      "typeRoots": [
+      "@types",
+      "./node_modules/@types"
+    ],
     }
   }
