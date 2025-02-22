@@ -81,7 +81,8 @@
       "**/*.(t|j)s",
       "!src/main.ts",
       "!src/**/*.module.ts",
-      "!src/**/*.dto.ts"
+      "!src/modules/**/*.dto.ts",
+      "!src/doc/**"
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",

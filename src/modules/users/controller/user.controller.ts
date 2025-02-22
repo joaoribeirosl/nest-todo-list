@@ -5,10 +5,10 @@ import { ApiUpdateUser } from '@document/user/update_user_by_id.documentation';
 import { Controller, Post, Body, Get, Param, Put } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
-import { CreateUserService } from '../services/create-user/create-user.service';
-import { GetAllUsersService } from '../services/get-all-users/get-all-users.service';
-import { GetUserByIdService } from '../services/get-user-by-id/get-user-by-id.service';
-import { UpdateUserByIdService } from '../services/update-user/update-user-by-id.service';
+import { GetAllUsersService } from '../services/get-all-users.service';
+import { GetUserByIdService } from '../services/get-user-by-id.service';
+import { CreateUserService } from '../services/create-user.service';
+import { UpdateUserByIdService } from '../services/update-user-by-id.service';
 
 @Controller('users')
 export class UserController {
