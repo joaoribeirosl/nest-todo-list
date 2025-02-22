@@ -1,22 +1,25 @@
+import { ApiCreateTask } from '@document/task/create_task.documentation';
+import { ApiDeleteTaskById } from '@document/task/delete_task_by_id.documentation';
+import { ApiGetAllTasks } from '@document/task/get_all_tasks.documentation';
+import { ApiGetTasksByUserId } from '@document/task/get_task_by_id.documentation';
+import { ApiUpdateTaskById } from '@document/task/update_task_by_id.documentation';
 import {
-  Body,
   Controller,
-  Delete,
-  Get,
-  HttpStatus,
-  Param,
   Post,
-  Put,
+  Body,
   Query,
+  Get,
+  Param,
+  Delete,
+  Put,
 } from '@nestjs/common';
-import { CreateTaskService } from '../services/create-task-service/create-task.service';
-import { GetAllTasksService } from '../services/get-all-tasks-service/get-all-tasks.service';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { CreateTaskDto } from '../dto/create-task.dto';
-import { GetAllTasksByUserIdService } from '../services/get-all-tasks-by-user-id/get-all-tasks-by-user-id.service';
-import { DeleteTaskByIdService } from '../services/delete-task-by-id/delete-task-by-id.service';
 import { UpdateTaskDto } from '../dto/update-task.dto';
-import { UpdateTaskByIdService } from '../services/update-task-by-id/update-task-by-id.service';
+import { DeleteTaskByIdService } from '../services/delete-task-by-id.service';
+import { GetAllTasksByUserIdService } from '../services/get-all-tasks-by-user-id.service';
+import { GetAllTasksService } from '../services/get-all-tasks.service';
+import { CreateTaskService } from '../services/create-task.service';
+import { UpdateTaskByIdService } from '../services/update-task-by-id.service';
 
 @Controller('tasks')
 export class TaskController {
@@ -28,72 +31,32 @@ export class TaskController {
     private readonly updateTaskByIdService: UpdateTaskByIdService,
   ) {}
 
-  @ApiOperation({ summary: 'Create a new task' })
+  @ApiCreateTask()
   @Post()
-  @ApiResponse({
-    status: HttpStatus.CREATED,
-    description: 'The task is successfully created',
-  })
-  @ApiResponse({
-    status: HttpStatus.UNAUTHORIZED,
-    description: 'Invalid token',
-  })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
-    description: 'Title should not be empty',
-  })
   async create(@Body() body: CreateTaskDto, @Query('token') token: string) {
     return this.createTaskService.execute(body, token);
   }
 
-  @ApiOperation({ summary: 'Get all tasks from all users' })
+  @ApiGetAllTasks()
   @Get()
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: 'Get all tasks successfully',
-  })
   async index() {
     return await this.getAllTasksService.execute();
   }
 
-  @ApiOperation({ summary: 'Get all tasks from specific user' })
+  @ApiGetTasksByUserId()
   @Get(':id')
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: 'Get all tasks from specific user successfully',
-  })
-  @ApiResponse({
-    status: HttpStatus.NOT_FOUND,
-    description: 'User not found',
-  })
   async getAllById(@Param('id') param: string) {
     return await this.getAllTasksByUserId.execute(param);
   }
 
-  @ApiOperation({ summary: 'Delete specific task' })
+  @ApiDeleteTaskById()
   @Delete(':id')
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: 'Specific task was deleted successfully',
-  })
-  @ApiResponse({
-    status: HttpStatus.NOT_FOUND,
-    description: 'Task not found',
-  })
   async delete(@Param('id') param: string) {
     return await this.deleteTaskByIdService.execute(param);
   }
 
-  @ApiOperation({ summary: 'Update task title and/or description' })
+  @ApiUpdateTaskById()
   @Put()
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: 'Specific task was updated successfully',
-  })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
-    description: 'Title should not be empty',
-  })
   async update(@Body() body: UpdateTaskDto) {
     return await this.updateTaskByIdService.execute(body);
   }

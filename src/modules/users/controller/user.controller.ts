@@ -1,19 +1,14 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpStatus,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
+import { ApiCreateUser } from '@document/user/create_user.documentation';
+import { ApiGetAllUsers } from '@document/user/get_all_users.documentation';
+import { ApiGetUserById } from '@document/user/get_user_by_id.documentation';
+import { ApiUpdateUser } from '@document/user/update_user_by_id.documentation';
+import { Controller, Post, Body, Get, Param, Put } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
-import { CreateUserService } from '../services/create-user/create-user.service';
-import { GetUserByIdService } from '../services/get-user-by-id/get-user-by-id.service';
-import { GetAllUsersService } from '../services/get-all-users/get-all-users.service';
-import { UpdateUserByIdService } from '../services/update-user/update-user-by-id.service';
 import { UpdateUserDto } from '../dto/update-user.dto';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { GetAllUsersService } from '../services/get-all-users.service';
+import { GetUserByIdService } from '../services/get-user-by-id.service';
+import { CreateUserService } from '../services/create-user.service';
+import { UpdateUserByIdService } from '../services/update-user-by-id.service';
 
 @Controller('users')
 export class UserController {
@@ -24,58 +19,26 @@ export class UserController {
     private readonly updateUserByIdService: UpdateUserByIdService,
   ) {}
 
-  @ApiOperation({ summary: 'Create an user' })
+  @ApiCreateUser()
   @Post()
-  @ApiResponse({
-    status: HttpStatus.CREATED,
-    description: 'Create user successfully',
-  })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
-    description: 'All fiedls should not be empty',
-  })
-  @ApiResponse({
-    status: HttpStatus.CONFLICT,
-    description: 'When another user already has this email',
-  })
   async create(@Body() body: CreateUserDto) {
     return await this.createUserService.execute(body);
   }
 
-  @ApiOperation({ summary: 'Get an user by its id' })
+  @ApiGetUserById()
   @Get(':id')
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: 'Get specific user',
-  })
   async getOne(@Param('id') param: string) {
     return await this.getUserByIdService.execute(param);
   }
 
-  @ApiOperation({ summary: 'Get all users' })
+  @ApiGetAllUsers()
   @Get()
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: 'Get all users successfully',
-  })
   async index() {
     return await this.getAllUsersService.execute();
   }
 
-  @ApiOperation({ summary: 'Update user name and/or email' })
+  @ApiUpdateUser()
   @Put()
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: 'Update user info successfully',
-  })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
-    description: 'All fiedls should not be empty',
-  })
-  @ApiResponse({
-    status: HttpStatus.NOT_FOUND,
-    description: 'User not found',
-  })
   async update(@Body() body: UpdateUserDto) {
     return await this.updateUserByIdService.execute(body);
   }
