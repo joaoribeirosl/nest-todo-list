@@ -23,7 +23,9 @@ export class CreateTaskService {
     createdTask: CreateTaskDto,
     token: string,
   ): Promise<IResponse | undefined> {
-    const userExists = await this.decodeTokenService.decodeToken(token);
+    const userExists = await this.decodeTokenService.decodeToken(
+      token.replace('Bearer ', ''),
+    );
     if (!userExists) throw new NotFoundException();
 
     const task = await this.prisma.task.create({

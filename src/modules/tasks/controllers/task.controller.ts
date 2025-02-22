@@ -12,6 +12,7 @@ import {
   Param,
   Delete,
   Put,
+  Headers,
 } from '@nestjs/common';
 import { CreateTaskDto } from '../dto/create-task.dto';
 import { UpdateTaskDto } from '../dto/update-task.dto';
@@ -33,7 +34,10 @@ export class TaskController {
 
   @ApiCreateTask()
   @Post()
-  async create(@Body() body: CreateTaskDto, @Query('token') token: string) {
+  async create(
+    @Body() body: CreateTaskDto,
+    @Headers('Authorization') token: string,
+  ) {
     return this.createTaskService.execute(body, token);
   }
 
