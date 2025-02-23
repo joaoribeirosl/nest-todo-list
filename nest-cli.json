@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": ".",
+  "root": ".",
+  "monorepo": true,
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": false,
+    "tsConfigPath": "apps/todo-list/tsconfig.app.json"
+  },
+  "projects": {
+    "rabbitmq-process": {
+      "type": "application",
+      "root": "apps/rabbitmq-process",
+      "entryFile": "main",
+      "sourceRoot": "apps/rabbitmq-process/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/rabbitmq-process/tsconfig.app.json"
+      }
+    },
+    "todo-list": {
+      "type": "application",
+      "root": "apps/todo-list",
+      "entryFile": "main",
+      "sourceRoot": "apps/todo-list/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/todo-list/tsconfig.app.json"
+      }
+    }
   }
 }

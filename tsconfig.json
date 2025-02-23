@@ -1,34 +1,38 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "declaration": true,
-      "removeComments": true,
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "allowSyntheticDefaultImports": true,
-      "target": "ES2021",
-      "sourceMap": true,
-      "outDir": "./dist",
-      "baseUrl": "./",
-      "incremental": true,
-      "skipLibCheck": true,
-      "strictNullChecks": true,
-      "forceConsistentCasingInFileNames": true,
-      "noImplicitAny": false,
-      "strictBindCallApply": false,
-      "noFallthroughCasesInSwitch": false,
-      "rootDir": "./",
-      "strict": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "strictPropertyInitialization": false,
-      "paths": {
-        "@module/*": ["src/modules/*"],
-        "@document/*": ["src/doc/*"],
-      },
-      "typeRoots": [
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false,
+    "rootDir": "./",
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@document/*": [
+        "apps/todo-list/src/doc/*"
+      ],
+      "@module/*": [
+        "apps/todo-list/src/modules/*"
+      ]
+    },
+    "typeRoots": [
       "@types",
       "./node_modules/@types"
-    ],
-    }
+    ]
   }
+}
